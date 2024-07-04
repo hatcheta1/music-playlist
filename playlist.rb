@@ -82,6 +82,11 @@ class Playlist
           @songs_of_chosen_genre.push(song)
         end
       end
+
+      puts "Here are the songs of #{genre} genre:"
+      @songs_of_chosen_genre.each do |song|
+        puts song
+      end
     end
   end
 
