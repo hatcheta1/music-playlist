@@ -1,13 +1,14 @@
 class Song
-  attr_accessor :title, :artist, :genre, :rating
+  attr_accessor :name, :artist, :genre, :rating
 
-  def initialize(title, artist)
-    @title = title
+  def initialize(name, artist, genre)
+    @name = name
     @artist = artist
+    @genre = genre
   end
 
   def to_s
-    "#{title} by #{artist}"
+    "#{name} by #{artist}"
   end
 
 end
