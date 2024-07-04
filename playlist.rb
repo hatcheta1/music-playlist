@@ -12,8 +12,8 @@ class Playlist
       puts "\n"
       puts "Welcome to your playlist!"
       puts "1. Add a song"
-      puts "2. Rate a song"
-      puts "3. List songs"
+      puts "2. List songs"
+      puts "3. Shuffle playlist"
       puts "4. Quit"
       puts "Choose an option: "
 
@@ -23,10 +23,10 @@ class Playlist
         add_song
 
       elsif input == "2"
-        rate_song
+        list_songs
 
       elsif input == "3"
-        list_songs
+        shuffle_playlist
 
       elsif input == "4"
         puts "\n"
@@ -50,26 +50,6 @@ class Playlist
     @songs.push(Song.new(name, artist, genre))
     puts "\n"
     puts "'#{name}' was successfully added to the playlist!"
-  end
-
-  def rate_song
-    print "What song would you like to rate? "
-    song = gets.chomp
-
-    print "What is your rating of this song (out of 5)? "
-    rating = gets.chomp.to_i
-
-    if rating < 1 || rating > 5
-      puts "Invalid rating. Please try again."
-
-    else
-      if @songs.include?(song)
-        @songs[@songs.index(song)].rating = rating
-      end
-
-      puts "\n"
-      puts "You rated '#{song}' a #{rating.to_s} out of 5."
-    end
   end
 
   def list_songs
@@ -101,6 +81,15 @@ class Playlist
       @songs_of_chosen_genre.each do |song|
         puts song
       end
+    end
+  end
+
+  def shuffle_playlist
+    puts "Here is your shuffled playlist:"
+    @songs = @songs.shuffle!
+
+    @songs.each do |song|
+      puts song
     end
   end
 
