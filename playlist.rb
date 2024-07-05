@@ -9,8 +9,7 @@ class Playlist
     input = 0
 
     while input != "4" do
-      puts "\n"
-      puts "Welcome to your playlist!"
+      puts "\nWelcome to your playlist!"
       puts "1. Add a song"
       puts "2. List songs"
       puts "3. Shuffle playlist"
@@ -29,12 +28,10 @@ class Playlist
         shuffle_playlist
 
       elsif input == "4"
-        puts "\n"
-        puts "Thank you for creating your playlist. Goodbye!"
+        puts "\nThank you for creating your playlist. Goodbye!"
 
       else
-        puts "\n"
-        puts "Invalid input. Please try again."
+        puts "\nInvalid input. Please try again."
       end
     end
   end
@@ -60,32 +57,43 @@ class Playlist
     option = gets.chomp
 
     if option == "1"
-      puts "\n"
-      puts "Here is your playlist: "
+      puts "\nHere is your playlist: "
       @songs.each do |song|
         puts song
       end
 
     elsif option == "2"
-      puts "What music genre would you like to see? "
+      puts "\nWhat music genre would you like to see? "
       genre = gets.chomp
       @songs_of_chosen_genre = []
-
+      
+      # If a song has the chosen genre, add it to the list
       @songs.each do |song|
         if song.genre == genre
           @songs_of_chosen_genre.push(song)
         end
       end
 
-      puts "Here are the songs of the #{genre} genre:"
-      @songs_of_chosen_genre.each do |song|
-        puts song
+      # If the list is empty, there are no songs of that genre on the current playlist
+      if @songs_of_chosen_genre.count == 0
+        puts "\nThere are no songs of your chosen genre on the playlist."
+
+      # If the list is not empty, display each song on the list
+      else
+        puts "\nHere are the songs of your chosen genre (#{genre}):"
+        @songs_of_chosen_genre.each do |song|
+          puts song
       end
+    end
+
+    # If the user enters a number besides 1 or 2, prompt them to try again
+    else
+      puts "\nInvalid input. Please try again."
     end
   end
 
   def shuffle_playlist
-    puts "Here is your shuffled playlist:"
+    puts "\nHere is your shuffled playlist:"
     @songs = @songs.shuffle!
 
     @songs.each do |song|
