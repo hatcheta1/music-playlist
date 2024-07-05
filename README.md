@@ -4,7 +4,7 @@ This is a command line interface app to create a playlist of songs.
 
 You can add songs to the playlist, list all the songs of the playlist, list songs by genre, and shuffle the playlist.
 
-To run the app from the command line, run the app.rb file (`ruby app.rb`). A list of options will come up and you will be prompted to choose an option. Enter the number of the option that you choose. For example, to quit the app you would simply enter "4".
+To run the app from the command line, run the app.rb file (`ruby app.rb`). A list of options will come up and you will be prompted to choose an option. Enter the number of the option that you choose. For example, to quit the app you would simply enter `4`.
 
 If you choose option 1, you will then be prompted to enter the name, artist, and genre of a song. This song will be added to the playlist.
 
