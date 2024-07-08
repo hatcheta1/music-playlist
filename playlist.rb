@@ -30,6 +30,9 @@ class Playlist
       elsif input == "4"
         puts "\nThank you for creating your playlist. Goodbye!"
 
+      elsif input == "5"
+        rate_song
+
       else
         puts "\nInvalid input. Please try again."
       end
@@ -98,6 +101,36 @@ class Playlist
 
     @songs.each do |song|
       puts song
+    end
+  end
+
+  def rate_song
+    print "What song would you like to rate? "
+    song = gets.chomp
+
+    print "What is your rating of this song (out of 5)? "
+    rating = gets.chomp.to_i
+
+    @songs.each do |track|
+      if track.name == song
+        @songs[@songs.index(track)].rating = rating
+      end
+    # If the song is not present in the @songs array, give an error message
+    
+    #if @songs.include?(song)
+      #@songs[@songs.index(song)].rating = rating
+    end
+    if rating < 1 || rating > 5
+      puts "Invalid rating. Please try again."
+
+    puts "You rated #{song} a #{rating} out of 5."
+    else
+      if @songs.include?(song)
+        @songs[@songs.index(song)].rating = rating
+      end
+
+      puts "\n"
+      puts "You rated '#{song}' a #{rating.to_s} out of 5."
     end
   end
 
