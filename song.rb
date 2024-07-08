@@ -5,10 +5,15 @@ class Song
     @name = name
     @artist = artist
     @genre = genre
+    @rating = rating
   end
 
   def to_s
-    "#{name} by #{artist}"
+    if @rating
+      "#{@name} by #{@artist} (#{@genre}) - Rating: #{@rating}/5"
+    else
+      "#{name} by #{artist} (#{@genre})"
+    end
   end
 
 end

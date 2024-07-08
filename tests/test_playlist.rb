@@ -5,7 +5,7 @@ require "stringio"
 class TestPlaylist < Minitest::Test
   def test_run
     # Simulate user input
-    input = StringIO.new("4\n")
+    input = StringIO.new("5\n")
     output = StringIO.new
     $stdin = input
     $stdout = output
@@ -18,7 +18,8 @@ class TestPlaylist < Minitest::Test
       1. Add a song
       2. List songs
       3. Shuffle playlist
-      4. Quit
+      4. Rate a song
+      5. Quit
       Choose an option: 
       
       Thank you for creating your playlist. Goodbye!
